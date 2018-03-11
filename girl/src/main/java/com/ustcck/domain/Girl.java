@@ -3,6 +3,7 @@ package com.ustcck.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 /**
  * Created by CaoKai on 2018/3/10 19:25.
@@ -17,6 +18,7 @@ public class Girl {
 
     private String cupSize;
 
+    @Min(value = 18, message = "禁止未成年少女人进入")
     private Integer age;
 
     public Girl() {
