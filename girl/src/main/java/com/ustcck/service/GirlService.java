@@ -32,4 +32,20 @@ public class GirlService {
         girlRepository.save(girlB);
     }
 
+    /**
+     * 查询所有女生
+     * @return
+     */
+    public List<Girl> findAll() {
+        return girlRepository.findAll();
+    }
+
+    /**
+     * 通过i的查询一个女生
+     * @param id
+     * @return
+     */
+    public Optional<Girl> findOne(Integer id) {
+        return girlRepository.findById(id);
+    }
 }
