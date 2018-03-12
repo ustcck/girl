@@ -1,8 +1,10 @@
 package com.ustcck.controller;
 
 import com.ustcck.domain.Girl;
+import com.ustcck.domain.Result;
 import com.ustcck.repository.GirlRepository;
 import com.ustcck.service.GirlService;
+import com.ustcck.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +38,13 @@ public class GirlController {
     }
 
     @PostMapping(value = "/girls")
-    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+            return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
         }
         girl.setCupSize(girl.getCupSize());
         girl.setAge(girl.getAge());
-
-        return girlRepository.save(girl);
+        return ResultUtil.success(girlRepository.save(girl));
     }
 
     //根据id查询一个
@@ -83,5 +83,4 @@ public class GirlController {
     public void insertTwo() {
         girlService.insertTwo();
     }
-
 }

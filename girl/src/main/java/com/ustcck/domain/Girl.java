@@ -21,6 +21,16 @@ public class Girl {
     @Min(value = 18, message = "禁止未成年少女人进入")
     private Integer age;
 
+    private String money;
+
+    public String getMoney() {
+        return money;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
     public Girl() {
     }
 
@@ -54,6 +64,7 @@ public class Girl {
                 "id=" + id +
                 ", cupSize='" + cupSize + '\'' +
                 ", age=" + age +
+                ", money='" + money + '\'' +
                 '}';
     }
 }

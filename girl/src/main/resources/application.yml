@@ -3,7 +3,7 @@ spring:
     active: prod
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://115.159.161.91:3306/dbgirl?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://115.159.161.91:3306/dbgirl?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: ustcck
     password: Ck4438707%
   jpa:
